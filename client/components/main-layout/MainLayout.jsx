@@ -13,9 +13,9 @@ export default class MainLayout extends React.Component {
     return (
       <div className="main-layout">
         <NavBar />
-          <RouteTransition pathname={this.props.location.pathname}>
+          
             {this.props.children}
-          </RouteTransition>
+          
         <Footer />
       </div>
     )

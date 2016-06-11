@@ -3,12 +3,15 @@ import { TransitionMotion, spring } from 'react-motion';
 
 const willEnter = () => ({
   opacity: 0,
-  scale: 0.98
+  scale: spring(1),
+  width: spring(1)
 });
 
 const willLeave = () => ({
   opacity: spring(0),
-  scale: spring(1.02)
+  scale: spring(1),
+  width: spring(0)
+
 });
 
 const getStyles = () => ({
@@ -16,7 +19,7 @@ const getStyles = () => ({
   scale: spring(1)
 });
 
-const RouteTransition = ({ children: child, pathname }) => (
+const RouteTransition = ({ children: child, pathname, enterStyle, leaveStyle }) => (
   <TransitionMotion
     styles={ [{
       key: pathname,
